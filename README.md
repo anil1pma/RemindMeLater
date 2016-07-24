@@ -9,7 +9,7 @@ sudo apt-get install python-librabbitmq
 sudo apt-get install python-celery
 
 
-DataBase:
+#DataBase:
 Create Database "sendMessage"
 in settings.py change Database 
 DATABASES = {
@@ -26,18 +26,22 @@ DATABASES = {
 }
 change 'USER' and 'PASSWORD' accordingly.
 
-DatabaseModeling:
+#DatabaseModeling:
 Tablename: SendMessage
 PrimaryKey: id(default key)
 attributes: user_mob_no (var char), user_message (var char), user_mail_id(var char),  user_message_through(var char), 
 user_msg_date_time(dateTime).
 
-Run Command:
+#Run Command:
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 
 Feel the information and submit.
+
+#Run Celery in back ground:
+celery -A mysite beat
+celery -A mysite worker
 
 
 
